@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Habitacion extends Model
 {
     use HasFactory;
+    protected $table = 'habitaciones';
+    protected $primaryKey = 'id';
+    protected $timestamps = false;
 }
