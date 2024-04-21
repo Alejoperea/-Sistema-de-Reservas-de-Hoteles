@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\HabitacionController;
+// use App\Http\Controllers\HabitacionController;
 
 Route::get('/', function () {
     return view('welcome');
