@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -29,7 +30,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
