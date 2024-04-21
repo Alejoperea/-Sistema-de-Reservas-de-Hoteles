@@ -10,5 +10,5 @@ class Hotel extends Model
     use HasFactory;
     protected $table = 'hoteles';
     protected $primaryKey = 'id';
-    protected $timestamps = false;
+    public $timestamps = false;
 }
