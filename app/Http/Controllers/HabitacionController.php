@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Habitacion;
 
 class HabitacionController extends Controller
 {
@@ -11,7 +11,8 @@ class HabitacionController extends Controller
      */
     public function index()
     {
-        //
+        $habitaciones = Habitacion::all();
+        return view('habitacion.index',['habitaciones' => $habitaciones]);
     }
 
     /**
