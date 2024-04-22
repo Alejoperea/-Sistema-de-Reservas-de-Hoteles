@@ -34,7 +34,15 @@
                   <td>{{ $habitacion->numero }}</td>
                   <td>{{ $habitacion->tipo }}</td>
                   <td>{{ $habitacion->precio_por_noche }}</td>
-                  <td><span>Acciones</span></td>
+                  <td>
+                    <form action="{{route('habitaciones.destroy',['habitacion' =>$habitacion->id])}}"
+                      method="POST" style="display: inline-block">
+                      @method('delete')
+                      @csrf
+                      <input class="btn btn-danger" type="submit" value="Delete">
+                  </form>
+
+                  </td>
                 </tr>
               @endforeach
           </tbody>

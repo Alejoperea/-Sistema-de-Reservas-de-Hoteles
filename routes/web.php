@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     //Route::get('/habitaciones', [HabitacionController::class,'index'])->name('habitaciones.index');
     Route::post('/habitaciones', [HabitacionController::class, 'store'])->name('habitaciones.store');
     Route::get('/habitaciones/create', [HabitacionController::class, 'create'])->name('habitaciones.create');
+    Route::delete('/habitaciones/{habitacion}', [HabitacionController::class, 'destroy'])->name('habitaciones.destroy');
 });
 
 require __DIR__.'/auth.php';

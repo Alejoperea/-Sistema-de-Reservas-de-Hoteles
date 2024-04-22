@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Habitacion;
 use App\Models\Hotel;
@@ -14,13 +15,13 @@ class HabitacionController extends Controller
     public function index()
     {
         // $habitaciones = Habitacion::all();
-        
+
         $habitaciones = DB::table('habitaciones')
-        ->join('hoteles','habitaciones.hoteles_id', '=', 'hoteles.id')
-        ->select('habitaciones.*','hoteles.nombre')
-        ->get();
-        
-        return view('habitacion.index',['habitaciones' => $habitaciones]);
+            ->join('hoteles', 'habitaciones.hoteles_id', '=', 'hoteles.id')
+            ->select('habitaciones.*', 'hoteles.nombre')
+            ->get();
+
+        return view('habitacion.index', ['habitaciones' => $habitaciones]);
     }
 
     /**
@@ -29,9 +30,9 @@ class HabitacionController extends Controller
     public function create()
     {
         $hoteles = Hotel::orderBy('id')
-        ->select('id', 'nombre')->get();
-        
-        return view('habitacion.new', ['hoteles' =>$hoteles]);
+            ->select('id', 'nombre')->get();
+
+        return view('habitacion.new', ['hoteles' => $hoteles]);
     }
 
     /**
@@ -40,7 +41,7 @@ class HabitacionController extends Controller
     public function store(Request $request)
     {
         $habitacion = new Habitacion();
-        
+
         $habitacion->hoteles_id = $request->nombre;
         $habitacion->numero = $request->numero;
         $habitacion->tipo = $request->tipo;
@@ -48,11 +49,12 @@ class HabitacionController extends Controller
         $habitacion->save();
 
         $habitaciones = DB::table('habitaciones')
-        ->join('hoteles','habitaciones.hoteles_id', '=', 'hoteles.id')
-        ->select('habitaciones.*','hoteles.nombre')
-        ->get();
-        
-        return view('habitacion.index',['habitaciones' => $habitaciones]);
+            ->join('hoteles', 'habitaciones.hoteles_id', '=', 'hoteles.id')
+            ->select('habitaciones.*', 'hoteles.nombre')
+            ->get();
+
+        // return view('habitacion.index', ['habitaciones' => $habitaciones]);
+        return redirect()->route('habitaciones.index'); // esta rota me permite que redireccione correctamente
     }
 
     /**
@@ -84,6 +86,15 @@ class HabitacionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+
+        $habitacion->delete();
+        $habitaciones = DB::table('habitaciones')
+            ->join('hoteles', 'habitaciones.hoteles_id', '=', 'hoteles.id')
+            ->select('habitaciones.*', 'hoteles.nombre')
+            ->get();
+
+        // return view('habitaciones.index', ['habitaciones' => $habitaciones]);
+        return redirect()->route('habitaciones.index');
     }
 }
