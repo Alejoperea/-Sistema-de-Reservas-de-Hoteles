@@ -34,7 +34,15 @@
                   <td>{{ $hotel->ubicacion }}</td>
                   <td>{{ $hotel->numero_telefonico }}</td>
                   <td>{{ $hotel->email_contacto }}</td>
-                  <td><span>Acciones</span></td>
+                  <td>
+                    <form action="{{route('hoteles.destroy',['hotel' =>$hotel->id])}}"
+                        method='POST' style="display:inline-block">
+                        @method('delete')
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+
+                  </td>
                 </tr>
               @endforeach
           </tbody>
