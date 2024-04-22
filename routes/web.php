@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     //rutas de habitaciones
     Route::get('/habitaciones', [HabitacionController::class,'index'])->name('habitaciones.index');
     //Route::get('/habitaciones', [HabitacionController::class,'index'])->name('habitaciones.index');
+    Route::post('/habitaciones', [HabitacionController::class, 'store'])->name('habitaciones.store');
+    Route::get('/habitaciones/create', [HabitacionController::class, 'create'])->name('habitaciones.create');
 });
 
 require __DIR__.'/auth.php';

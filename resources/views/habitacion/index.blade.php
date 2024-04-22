@@ -14,13 +14,13 @@
   <body>
     <div class="container">
       <h1 class="text-center">Sistema de Habitaciones</h1>
-      <a href="{{ route('habitaciones.index') }}" class="btn btn-success">Agregar</a>
+      <a href="{{ route('habitaciones.create') }}" class="btn btn-success">Agregar</a>
       <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Hotel</th>
-              <th scope="col">Nuemero de Habitacion</th>
+              <th scope="col">Número de Habitación</th>
               <th scope="col">Tipo de Habitacion</th>
               <th scope="col">Precio Noche</th>
               <th scope="col">Acciones</th>
