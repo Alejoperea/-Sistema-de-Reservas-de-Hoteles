@@ -35,6 +35,10 @@
                   <td>{{ $hotel->numero_telefonico }}</td>
                   <td>{{ $hotel->email_contacto }}</td>
                   <td>
+
+                    <a href="{{route('hoteles.edit',['hotel' => $hotel->id])}}"
+                        class="btn btn-info">Edit</a></li>
+
                     <form action="{{route('hoteles.destroy',['hotel' =>$hotel->id])}}"
                         method='POST' style="display:inline-block">
                         @method('delete')

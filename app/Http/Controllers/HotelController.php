@@ -43,6 +43,7 @@ class HotelController extends Controller
         $hotel->save();
 
         $hoteles = DB::table('hoteles')
+            ->orderBy('id')
             ->get();
         return view('hotel.index', ['hoteles' => $hoteles]);
     }
@@ -60,7 +61,13 @@ class HotelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $hotel = Hotel::find($id);
+
+        $hoteles = DB::table('hoteles')
+        ->orderBy('id')
+        ->get();
+
+        return view('hotel.edit',['hotel' => $hotel,'hoteles'=> $hoteles]);
     }
 
     /**
@@ -68,7 +75,20 @@ class HotelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $hotel = Hotel::find($id);
+       
+        $hotel->nombre = $request->nombre;
+        $hotel->ubicacion = $request->ubicacion;
+        $hotel->numero_telefonico = $request->numero_telefonico;
+        $hotel->email_contacto = $request->email_contacto;
+        $hotel->save();
+
+        $hoteles = DB::table('hoteles')
+        ->orderBy('id')
+        ->get();
+
+        return view('hotel.index',['hoteles' => $hoteles]);
     }
 
     /**
@@ -80,7 +100,7 @@ class HotelController extends Controller
         $hotel->delete();
 
         $hoteles = DB::table('hoteles')
-        
+        ->orderBy('id')
         ->get();
 
         return view('hotel.index',['hoteles' => $hoteles]);

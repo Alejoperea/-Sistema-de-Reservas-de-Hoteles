@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/hoteles', [HotelController::class, 'store'])->name('hoteles.store');
     Route::get('/hoteles/create', [HotelController::class, 'create'])->name('hoteles.create');
     Route::delete('/hoteles/{hotel}', [HotelController::class, 'destroy'])->name('hoteles.destroy');
+    Route::put('/hoteles/{hotel}', [HotelController::class, 'update'])->name('hoteles.update');
+    Route::get('/hoteles/{hotel}/edit', [HotelController::class, 'edit'])->name('hoteles.edit');
+    
     
 
     //rutas de habitaciones
