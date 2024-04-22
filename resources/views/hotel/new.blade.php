@@ -15,11 +15,11 @@
     <h1 class="text-center">Agregar Hotel</h1>
     <form method="POST" action="{{ route('hoteles.store') }}">
         @csrf
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="id" class="form-label">Id</label>
             <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" disabled="disabled">
             <div id="idHelp" class="form-text">Hotel Codigo</div>
-        </div>
+        </div> --}}
 
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>

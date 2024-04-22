@@ -28,24 +28,25 @@ class HotelController extends Controller
             ->get();
         return view('hotel.new', ['hoteles' => $hoteles]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $hotel = new Hotel();
-
+        
         $hotel->nombre = $request->nombre;
         $hotel->ubicacion = $request->ubicacion;
         $hotel->numero_telefonico = $request->numero_telefonico;
         $hotel->email_contacto = $request->email_contacto;
         $hotel->save();
-
+        
         $hoteles = DB::table('hoteles')
-            ->orderBy('id')
-            ->get();
-        return view('hotel.index', ['hoteles' => $hoteles]);
+        ->orderBy('id')
+        ->get();
+        // return view('hotel.index', ['hoteles' => $hoteles]);
+        return redirect()->route('hoteles.index');
     }
 
     /**

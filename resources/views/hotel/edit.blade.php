@@ -17,9 +17,9 @@
         @method('put')
         @csrf
         <div class="mb-3">
-            <label for="id" class="form-label">Id</label>
-            <input type="text" class="form-control" id="id" name="id" value="{{ $hotel->id }}" disabled>
-            <div id="idHelp" class="form-text">Código</div>
+            {{-- <label for="id" class="form-label">Id</label> --}}
+            <input type="hidden" class="form-control" id="id" name="id" value="{{ $hotel->id }}" disabled>
+            {{-- <div id="idHelp" class="form-text">Código</div> --}} 
         </div>
     
         <div class="mb-3">
