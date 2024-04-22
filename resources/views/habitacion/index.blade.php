@@ -30,10 +30,10 @@
               @foreach ($habitaciones as $habitacion)
                 <tr>
                   <th scope="row">{{ $habitacion->id }}</th>
-                  <td>{{ $hotel->hoteles_id }}</td>
-                  <td>{{ $hotel->numero }}</td>
-                  <td>{{ $hotel->tipo }}</td>
-                  <td>{{ $hotel->precio_por_noche }}</td>
+                  <td>{{ $habitacion->nombre }}</td>
+                  <td>{{ $habitacion->numero }}</td>
+                  <td>{{ $habitacion->tipo }}</td>
+                  <td>{{ $habitacion->precio_por_noche }}</td>
                   <td><span>Acciones</span></td>
                 </tr>
               @endforeach

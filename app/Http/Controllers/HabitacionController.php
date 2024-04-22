@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Habitacion;
+use Illuminate\Support\Facades\DB;
 
 class HabitacionController extends Controller
 {
@@ -11,7 +12,13 @@ class HabitacionController extends Controller
      */
     public function index()
     {
-        $habitaciones = Habitacion::all();
+        // $habitaciones = Habitacion::all();
+        
+        $habitaciones = DB::table('habitaciones')
+        ->join('hoteles','habitaciones.hoteles_id', '=', 'hoteles.id')
+        ->select('habitaciones.*','hoteles.nombre')
+        ->get();
+        
         return view('habitacion.index',['habitaciones' => $habitaciones]);
     }
 
