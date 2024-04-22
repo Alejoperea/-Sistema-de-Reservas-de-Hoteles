@@ -35,6 +35,10 @@
                   <td>{{ $habitacion->tipo }}</td>
                   <td>{{ $habitacion->precio_por_noche }}</td>
                   <td>
+
+                    <a href="{{route('habitaciones.edit',['habitacion' => $habitacion->id])}}"
+                      class="btn btn-info">Edit</a></li>
+
                     <form action="{{route('habitaciones.destroy',['habitacion' =>$habitacion->id])}}"
                       method="POST" style="display: inline-block">
                       @method('delete')

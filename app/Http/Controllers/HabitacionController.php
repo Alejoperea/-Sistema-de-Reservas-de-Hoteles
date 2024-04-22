@@ -70,7 +70,12 @@ class HabitacionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+
+        $hoteles = Hotel::orderBy('nombre')
+        ->get();
+
+        return view('habitacion.edit',['habitacion' =>$habitacion, 'hoteles' => $hoteles]);
     }
 
     /**
@@ -78,7 +83,22 @@ class HabitacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $habitacion = Habitacion::find($id);
+
+        $habitacion->hoteles_id = $request->nombre;
+        $habitacion->numero = $request->numero;
+        $habitacion->tipo = $request->tipo;
+        $habitacion->precio_por_noche = $request->precio_por_noche;
+        $habitacion->save();
+
+
+        $habitaciones = DB::table('habitaciones')
+            ->join('hoteles', 'habitaciones.hoteles_id', '=', 'hoteles.id')
+            ->select('habitaciones.*', 'hoteles.nombre')
+            ->get();
+
+        return view('habitacion.index', ['habitaciones' => $habitaciones]);
+        // return redirect()->route('habitaciones.index');
     }
 
     /**
