@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <h1 class="text-center">Sistema de Reserva de Hoteles</h1>
-      <a href="{{ route('hoteles.index') }}" class="btn btn-success">Agregar</a>
+      <a href="{{ route('hoteles.create') }}" class="btn btn-success">Agregar</a>
       <table class="table">
           <thead>
             <tr>

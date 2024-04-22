@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Hotel;
@@ -14,7 +15,7 @@ class HotelController extends Controller
     public function index()
     {
         $hoteles = Hotel::all();
-        return view('hotel.index',['hoteles' => $hoteles]);
+        return view('hotel.index', ['hoteles' => $hoteles]);
     }
 
     /**
@@ -22,7 +23,10 @@ class HotelController extends Controller
      */
     public function create()
     {
-       //
+        $hoteles = DB::table('hoteles')
+            ->orderBy('id')
+            ->get();
+        return view('hotel.new', ['hoteles' => $hoteles]);
     }
 
     /**
@@ -30,7 +34,17 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $hotel = new Hotel();
+
+        $hotel->nombre = $request->nombre;
+        $hotel->ubicacion = $request->ubicacion;
+        $hotel->numero_telefonico = $request->numero_telefonico;
+        $hotel->email_contacto = $request->email_contacto;
+        $hotel->save();
+
+        $hoteles = DB::table('hoteles')
+            ->get();
+        return view('hotel.index', ['hoteles' => $hoteles]);
     }
 
     /**

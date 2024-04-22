@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/hoteles', [HotelController::class,'index'])->name('hoteles.index');
+    Route::post('/hoteles', [HotelController::class, 'store'])->name('hoteles.store');
+    Route::get('/hoteles/create', [HotelController::class, 'create'])->name('hoteles.create');
     
 
     //rutas de habitaciones
