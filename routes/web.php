@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\HabitacionController;
+use App\Http\Controllers\ReservaController;
 // use App\Http\Controllers\HabitacionController;
 
 Route::get('/', function () {
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/habitaciones/{habitacion}', [HabitacionController::class, 'destroy'])->name('habitaciones.destroy');
     Route::put('/habitaciones/{habitacion}', [HabitacionController::class, 'update'])->name('habitaciones.update');
     Route::get('/habitaciones/{habitacion}/edit', [HabitacionController::class, 'edit'])->name('habitaciones.edit');
-});
 
+
+    //Rutas de reservas
+    Route::get('/reservas', [ReservaController::class,'index'])->name('reservas.index');
+});
 require __DIR__.'/auth.php';
