@@ -38,6 +38,9 @@
                   <td>{{ $reserva->cliente_email }}</td>
                   <td>
 
+                    <a href="{{route('reservas.edit',['reserva' => $reserva->id])}}"
+                        class="btn btn-info">Edit</a></li>
+
                     <form action="{{route('reservas.destroy',['reserva' =>$reserva->id])}}"
                         method="POST" style="display: inline-block">
                         @method('delete')

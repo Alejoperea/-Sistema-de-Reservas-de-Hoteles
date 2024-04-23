@@ -68,7 +68,12 @@ class ReservaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $reserva = Reserva::find($id);
+
+        $habitaciones = Habitacion::orderBy('numero')
+        ->get();
+
+        return view('reserva.edit',['reserva' =>$reserva, 'habitaciones' => $habitaciones]);
     }
 
     /**
@@ -76,7 +81,21 @@ class ReservaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $reserva = Reserva::find($id);
+
+        $reserva->habitaciones_id = $request->numero;
+        $reserva->fecha_inicio = $request->fecha_inicio;
+        $reserva->fecha_fin = $request->fecha_fin;
+        $reserva->cliente_nombre = $request->cliente_nombre;
+        $reserva->cliente_email = $request->cliente_email;
+        $reserva->save();
+
+        $reservas = DB::table('reservas')
+            ->join('habitaciones', 'reservas.habitaciones_id', '=', 'habitaciones.id')
+            ->select('reservas.*', 'habitaciones.numero')
+            ->get();
+
+            return view('reserva.index', ['reservas' => $reservas]);
     }
 
     /**

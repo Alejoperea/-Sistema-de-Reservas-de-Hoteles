@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/reservas', [ReservaController::class, 'store'])->name('reservas.store');
     Route::get('/reservas/create', [ReservaController::class, 'create'])->name('reservas.create');
     Route::delete('/reservas/{reserva}', [ReservaController::class, 'destroy'])->name('reservas.destroy');
+    Route::put('/reservas/{reserva}', [ReservaController::class, 'update'])->name('reservas.update');
+    Route::get('/reservas/{reserva}/edit', [ReservaController::class, 'edit'])->name('reservas.edit');
 
 }); 
 require __DIR__.'/auth.php';
