@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/reservas', [ReservaController::class,'index'])->name('reservas.index');
     Route::post('/reservas', [ReservaController::class, 'store'])->name('reservas.store');
     Route::get('/reservas/create', [ReservaController::class, 'create'])->name('reservas.create');
-
+    Route::delete('/reservas/{reserva}', [ReservaController::class, 'destroy'])->name('reservas.destroy');
 
 }); 
 require __DIR__.'/auth.php';

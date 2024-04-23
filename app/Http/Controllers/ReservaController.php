@@ -84,6 +84,16 @@ class ReservaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+        $reserva = Reserva::find($id);
+
+        $reserva->delete();
+        $reservas = DB::table('reservas')
+        ->join('habitaciones', 'reservas.habitaciones_id', '=', 'habitaciones.id')
+        ->select('reservas.*', 'habitaciones.numero')
+        ->get();
+
+        
+        return redirect()->route('reservas.index');
     }
 }

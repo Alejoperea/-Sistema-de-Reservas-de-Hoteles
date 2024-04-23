@@ -36,7 +36,15 @@
                   <td>{{ $reserva->fecha_fin }}</td>
                   <td>{{ $reserva->cliente_nombre }}</td>
                   <td>{{ $reserva->cliente_email }}</td>
-                  <td><span>Actions</span></td>
+                  <td>
+
+                    <form action="{{route('reservas.destroy',['reserva' =>$reserva->id])}}"
+                        method="POST" style="display: inline-block">
+                        @method('delete')
+                        @csrf
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+                  </td>
                 </tr>
               @endforeach
           </tbody>
