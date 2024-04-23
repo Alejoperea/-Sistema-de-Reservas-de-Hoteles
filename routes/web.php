@@ -41,5 +41,9 @@ Route::middleware('auth')->group(function () {
 
     //Rutas de reservas
     Route::get('/reservas', [ReservaController::class,'index'])->name('reservas.index');
-});
+    Route::post('/reservas', [ReservaController::class, 'store'])->name('reservas.store');
+    Route::get('/reservas/create', [ReservaController::class, 'create'])->name('reservas.create');
+
+
+}); 
 require __DIR__.'/auth.php';

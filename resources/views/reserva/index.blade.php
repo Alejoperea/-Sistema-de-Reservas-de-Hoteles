@@ -14,12 +14,12 @@
   <body>
     <div class="container">
       <h1 class="text-center">Sistema de Reserva de Hoteles</h1>
-      <a href="{{ route('reservas.index') }}" class="btn btn-success">Agregar</a>
+      <a href="{{ route('reservas.create') }}" class="btn btn-success">Agregar</a>
       <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Habitacion</th>
+              <th scope="col">Numero Habitacion</th>
               <th scope="col">Fecha Inicio</th>
               <th scope="col">Fecha Fin</th>
               <th scope="col">Cliente Nombre</th>
@@ -31,7 +31,7 @@
               @foreach ($reservas as $reserva)
                 <tr>
                   <th scope="row">{{ $reserva->id }}</th>
-                  <td>{{ $reserva->nombre }}</td>
+                  <td>{{ $reserva->numero }}</td>
                   <td>{{ $reserva->fecha_inicio }}</td>
                   <td>{{ $reserva->fecha_fin }}</td>
                   <td>{{ $reserva->cliente_nombre }}</td>
