@@ -15,6 +15,7 @@
     <div class="container">
       <h1 class="text-center">Sistema de Reserva de Hoteles</h1>
       <a href="{{ route('reservas.create') }}" class="btn btn-success">Agregar</a>
+      <a href="{{ route('dashboard') }}" class="btn btn-danger">Regresar al Dashboard</a>
       <table class="table">
           <thead>
             <tr>

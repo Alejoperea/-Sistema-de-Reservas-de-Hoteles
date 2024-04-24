@@ -15,6 +15,7 @@
     <div class="container">
       <h1 class="text-center">Sistema de Habitaciones</h1>
       <a href="{{ route('habitaciones.create') }}" class="btn btn-success">Agregar</a>
+      <a href="{{ route('dashboard') }}" class="btn btn-danger">Regresar al Dashboard</a>
       <table class="table">
           <thead>
             <tr>
