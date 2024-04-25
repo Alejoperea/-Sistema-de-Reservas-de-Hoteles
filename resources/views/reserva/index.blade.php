@@ -12,10 +12,11 @@
     <title>Sistema de Reserva de Hoteles</title>
   </head>
   <body>
+  <x-app-layout>
     <div class="container">
       <h1 class="text-center">Sistema de Reserva de Hoteles</h1>
       <a href="{{ route('reservas.create') }}" class="btn btn-success">Agregar</a>
-      <a href="{{ route('dashboard') }}" class="btn btn-danger">Regresar al Dashboard</a>
+      <a href="{{ route('dashboard') }}" class="btn btn-danger">Return Menu</a>
       <table class="table">
           <thead>
             <tr>
@@ -57,5 +58,6 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </x-app-layout>
   </body>
 </html>
